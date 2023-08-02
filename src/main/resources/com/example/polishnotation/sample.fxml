@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.polishnotation.Controller">
    <children>
       <MenuBar fx:id="myMenuBar" prefHeight="28.0" prefWidth="600.0">
         <menus>
@@ -32,7 +32,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="firstComboBox" layoutX="175.0" layoutY="148.0" prefWidth="150.0" />
+      <ComboBox fx:id="firstComboBox" layoutX="175.0" layoutY="148.0" onAction="#Select" prefWidth="150.0" />
       <Label fx:id="sentenceLabelTwo" layoutX="333.0" layoutY="150.0" text="to ">
          <font>
             <Font size="18.0" />
@@ -50,8 +50,8 @@
          </font>
       </Label>
       <TextField fx:id="userExpression" layoutX="243.0" layoutY="242.0" prefHeight="26.0" prefWidth="190.0" />
-      <Button fx:id="convertButton" layoutX="273.0" layoutY="304.0" mnemonicParsing="false" text="Convert" />
-      <Label fx:id="sentenceLabelOne1" alignment="CENTER" layoutX="224.0" layoutY="373.0" prefHeight="23.0" prefWidth="19.0" text="=">
+      <Button fx:id="convertButton" layoutX="273.0" layoutY="304.0" mnemonicParsing="false" onAction="#onConvertButtonClick" text="Convert" />
+      <Label fx:id="equalSignLabel" alignment="CENTER" layoutX="224.0" layoutY="373.0" prefHeight="23.0" prefWidth="19.0" text="=">
          <font>
             <Font size="18.0" />
          </font>
