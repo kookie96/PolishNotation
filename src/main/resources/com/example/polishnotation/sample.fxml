@@ -8,11 +8,12 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.polishnotation.Controller">
-   <children>
-      <MenuBar fx:id="myMenuBar" prefHeight="28.0" prefWidth="600.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.polishnotation.Controller">
+   <top>
+      <MenuBar fx:id="myMenuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Options">
             <items>
@@ -22,44 +23,50 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label fx:id="titleLabel" alignment="CENTER" layoutX="132.0" layoutY="55.0" prefHeight="29.0" prefWidth="336.0" text="Polish Notation Converter">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="sentenceLabelOne" layoutX="43.0" layoutY="149.0" prefHeight="23.0" prefWidth="129.0" text="I want to convert">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="firstComboBox" layoutX="175.0" layoutY="148.0" onAction="#Select" prefWidth="150.0" />
-      <Label fx:id="sentenceLabelTwo" layoutX="333.0" layoutY="150.0" text="to ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="secondComboBox" layoutX="352.0" layoutY="149.0" prefHeight="26.0" prefWidth="150.0" />
-      <Label fx:id="sentenceLabelThree" layoutX="508.0" layoutY="151.0" text=".">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="expressionLabel" layoutX="153.0" layoutY="243.0" prefHeight="23.0" prefWidth="90.0" text="Expression:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="userExpression" layoutX="243.0" layoutY="242.0" prefHeight="26.0" prefWidth="190.0" />
-      <Button fx:id="convertButton" layoutX="273.0" layoutY="304.0" mnemonicParsing="false" onAction="#onConvertButtonClick" text="Convert" />
-      <Label fx:id="equalSignLabel" alignment="CENTER" layoutX="224.0" layoutY="373.0" prefHeight="23.0" prefWidth="19.0" text="=">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="answerLabel" layoutX="250.0" layoutY="371.0" prefHeight="28.0" prefWidth="150.0" textFill="#064dc6">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="392.0" prefWidth="632.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="142.0" layoutY="14.0" prefHeight="54.0" prefWidth="316.0" text="Polish Notation Converter" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="142.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="expressionLabel" alignment="CENTER" layoutX="159.0" layoutY="216.0" prefHeight="32.0" prefWidth="90.0" text="Expression:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userExpression" layoutX="248.0" layoutY="220.0" prefHeight="26.0" prefWidth="232.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="155.0" />
+            <Label fx:id="equalSignLabel" alignment="CENTER" layoutX="271.0" layoutY="331.0" prefHeight="32.0" prefWidth="27.0" text="=" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="337.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="answerLabel" alignment="CENTER" layoutX="296.0" layoutY="331.0" prefHeight="31.0" prefWidth="68.0" text="Answer" textFill="RED" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="271.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="sentenceLabelOne" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="113.0" prefHeight="32.0" prefWidth="133.0" text="I want to convert" AnchorPane.rightAnchor="428.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="firstComboBox" layoutX="207.0" layoutY="116.0" prefHeight="26.0" prefWidth="125.0" />
+            <Label fx:id="sentenceLabelTwo" alignment="CENTER" layoutX="278.0" layoutY="113.0" prefHeight="32.0" prefWidth="23.0" text="to" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="223.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="secondComboBox" layoutX="360.0" layoutY="116.0" prefHeight="26.0" prefWidth="125.0" />
+            <Label fx:id="sentenceLabelThree" alignment="CENTER" layoutX="481.0" layoutY="113.0" prefHeight="32.0" prefWidth="23.0" text=".">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="290.0" layoutY="276.0" maxHeight="26.0" maxWidth="61.0" mnemonicParsing="false" onAction="#onConvertButtonClick" prefHeight="26.0" prefWidth="61.0" text="Convert" AnchorPane.bottomAnchor="95.5" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="284.0" AnchorPane.topAnchor="276.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
