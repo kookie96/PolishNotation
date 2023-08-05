@@ -12,7 +12,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("sample.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 425);
+        Scene scene = new Scene(fxmlLoader.load(), 650, 425);
         stage.setTitle("Polish Notation Converter");
         stage.setScene(scene);
         stage.show();

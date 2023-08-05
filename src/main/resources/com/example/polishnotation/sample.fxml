@@ -32,41 +32,41 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="expressionLabel" alignment="CENTER" layoutX="159.0" layoutY="216.0" prefHeight="32.0" prefWidth="90.0" text="Expression:">
+            <Label fx:id="expressionLabel" alignment="CENTER" layoutX="171.0" layoutY="219.0" prefHeight="32.0" prefWidth="90.0" text="Expression:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="userExpression" layoutX="248.0" layoutY="220.0" prefHeight="26.0" prefWidth="205.0" AnchorPane.leftAnchor="248.0" AnchorPane.rightAnchor="182.0" />
-            <Label fx:id="equalSignLabel" alignment="CENTER" layoutX="263.0" layoutY="331.0" prefHeight="32.0" prefWidth="27.0" text="=">
+            <TextField fx:id="userExpression" layoutX="260.0" layoutY="223.0" prefHeight="26.0" prefWidth="205.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="170.0" />
+            <Label fx:id="equalSignLabel" alignment="CENTER" layoutX="208.0" layoutY="330.0" prefHeight="32.0" prefWidth="27.0" text="=">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="answerLabel" layoutX="290.0" layoutY="332.0" prefHeight="31.0" prefWidth="192.0" text="Answer" textFill="RED" AnchorPane.leftAnchor="290.0" AnchorPane.rightAnchor="153.0">
+            <Label fx:id="answerLabel" layoutX="233.0" layoutY="331.0" prefHeight="31.0" prefWidth="280.0" textFill="RED" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="122.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="sentenceLabelOne" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="113.0" prefHeight="32.0" prefWidth="133.0" text="I want to convert">
+            <Label fx:id="sentenceLabelOne" alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="113.0" prefHeight="32.0" prefWidth="133.0" text="I want to convert">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="firstComboBox" layoutX="207.0" layoutY="116.0" prefHeight="26.0" prefWidth="125.0" />
-            <Label fx:id="sentenceLabelTwo" alignment="CENTER" layoutX="332.0" layoutY="113.0" prefHeight="32.0" prefWidth="23.0" text="to">
+            <ComboBox fx:id="firstComboBox" layoutX="234.0" layoutY="116.0" onMouseClicked="#hideWarningMessage" prefHeight="26.0" prefWidth="125.0" />
+            <Label fx:id="sentenceLabelTwo" alignment="CENTER" layoutX="359.0" layoutY="113.0" prefHeight="32.0" prefWidth="23.0" text="to">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="secondComboBox" layoutX="360.0" layoutY="116.0" prefHeight="26.0" prefWidth="125.0" />
-            <Label fx:id="sentenceLabelThree" alignment="CENTER" layoutX="481.0" layoutY="113.0" prefHeight="32.0" prefWidth="23.0" text=".">
+            <ComboBox fx:id="secondComboBox" layoutX="382.0" layoutY="116.0" onMouseClicked="#hideWarningMessage" prefHeight="26.0" prefWidth="125.0" />
+            <Label fx:id="sentenceLabelThree" alignment="CENTER" layoutX="499.0" layoutY="113.0" prefHeight="32.0" prefWidth="23.0" text=".">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="290.0" layoutY="276.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onConvertButtonClick" text="Convert" />
-            <Label fx:id="warningLabel" alignment="CENTER" layoutX="160.0" layoutY="154.0" prefHeight="59.0" prefWidth="291.0" text="Please enter expression without spaces." textFill="#0000ffb8" wrapText="true">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="287.0" layoutY="278.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onConvertButtonClick" text="Convert" />
+            <Label fx:id="warningLabel" alignment="CENTER" layoutX="173.0" layoutY="153.0" prefHeight="59.0" prefWidth="291.0" textFill="#0000ffb8" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font></Label>

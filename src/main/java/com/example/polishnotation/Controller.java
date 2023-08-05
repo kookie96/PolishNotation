@@ -90,7 +90,7 @@ public class Controller implements Initializable {
         });
     }
     @FXML
-    public void Select(ActionEvent event) {
+    protected void Select(ActionEvent event) {
         firstItem = firstComboBox.getSelectionModel().getSelectedItem();
         answerLabel.setText(firstItem);
 
@@ -106,8 +106,6 @@ public class Controller implements Initializable {
         Conversion conversion = new Conversion();
 
         try {
-            String answer = "";
-
             // Store expression inputted by the user in a string
             String exp = userExpression.getText();
 
@@ -121,10 +119,17 @@ public class Controller implements Initializable {
                 // Call Infix to Postfix method
                 if (firstItem.equals("Infix") && secondItem.equals("Postfix")) {
                     answerLabel.setText(conversion.InfixToPostfix(exp));
+                } else if (firstItem.equals("Infix") && secondItem.equals("Prefix")) {
+                    answerLabel.setText(conversion.InfixToPrefix(exp));
                 }
             }
         } catch (Exception e) {
             warningLabel.setText(e.getMessage());
         }
+    }
+
+    @FXML
+    protected void hideWarningMessage() {
+        warningLabel.setText("");
     }
 }
