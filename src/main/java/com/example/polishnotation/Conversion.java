@@ -186,7 +186,7 @@ public class Conversion {
                 (x >= 'A' && x <= 'Z') ||
                 (x >= '0' && x <= '9');
     }
-    // Postfix to Infix
+    // 4. Postfix to Infix
     public String PostfixToInfix(String postExp) {
         try {
             // Initializing empty string stack
@@ -194,9 +194,21 @@ public class Conversion {
 
             // Traverse through postfix expression
             for (int i = 0; i < postExp.length(); i++) {
+                // If character is a space, go to next character
+                if (postExp.charAt(i) == ' ') {
+                    // do nothing and go to next iteration
+                }
+
                 // Push operands onto stack
-                if (isOperand(postExp.charAt(i))) {
-                    strStck.push(String.valueOf(postExp.charAt(i)));
+                else if (isOperand(postExp.charAt(i))) {
+                    String str = String.valueOf(postExp.charAt(i));
+
+                    // Checking to see if operand is not a single digit; ex. 10
+                    while (postExp.charAt(i + 1) != ' ') {
+                        str = str + postExp.charAt(i + 1);
+                        i++;
+                    }
+                    strStck.push(str);
                 }
 
                 // Otherwise, deal with operator
@@ -207,25 +219,72 @@ public class Conversion {
                     strStck.pop();
                     strStck.push("(" + op2 + postExp.charAt(i) +
                             op1 + ")");
+                    // |     |
+                    // |__5__|--> op1    operator = '+' ---> (op2 + op1) ---> (2+5)
+                    // |__2__|--> op2
                 }
             }
 
             // There must be a single element in stack now which
             // is the infix expression.
-            return strStck.peek();
+            return strStck.pop();
         } catch (Exception e) {
             return e.getMessage();
         }
     }
 
+    // 5. Prefix to Infix by reading expression from right to left
+    public String PrefixToInfix(String prefixExp) {
+        // Initializing empty string stack
+        Stack<String> strStack = new Stack<>();
 
-    // Prefix to Infix
+        for (int i = prefixExp.length() - 1; i >= 0; i--) {
+            // If character is a space, go to next character
+            if (prefixExp.charAt(i) == ' ') {
+                // do nothing and go to next iteration
+            }
+            // Push operands onto the stack
+            else if (isOperand(prefixExp.charAt(i))) {
+                String str = String.valueOf(prefixExp.charAt(i));
+
+                // Checking to see if operand is not a single digit; ex. 10
+                while (prefixExp.charAt(i - 1) != ' ') {
+                    str = prefixExp.charAt(i - 1) + str;
+                    i--;
+                }
+                strStack.push(str);
+            }
+
+            //Otherwise, deal with operators
+            else {
+                String op1 = strStack.peek();
+                strStack.pop();
+                String op2 = strStack.peek();
+                strStack.pop();
+                strStack.push("(" + op1 + prefixExp.charAt(i) +
+                        op2 + ")");
+                // |     |
+                // |__5__|--> op1  operator = '+'---> (op1 + op2) ---> (5+2)
+                // |__2__|--> op2
+            }
+        }
+        // There must be a single element in stack now which
+        // is the infix expression.
+        return strStack.pop();
+    }
+
+    // 6. Postfix to Prefix
+    public String PostfixToPrefix(String postExp) {
+        // Postfix -> Infix -> Prefix
+        String infixExp = PostfixToInfix(postExp);
+        return InfixToPrefix(infixExp);
+    }
 
 
-
-    // Postfix to Prefix
-
-
-
-    // Prefix to Postfix
+    // 7. Prefix to Postfix
+    public String PrefixToPostfix(String prefixExp) {
+        // Prefix -> Infix -> Postfix
+        String infixExp = PrefixToInfix(prefixExp);
+        return InfixToPostfix(infixExp);
+    }
 }

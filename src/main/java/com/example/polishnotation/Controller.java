@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.*;
@@ -89,14 +90,8 @@ public class Controller implements Initializable {
             }
         });
     }
-    @FXML
-    protected void Select(ActionEvent event) {
-        firstItem = firstComboBox.getSelectionModel().getSelectedItem();
-        answerLabel.setText(firstItem);
 
-        secondItem = secondComboBox.getSelectionModel().getSelectedItem();
-        answerLabel.setText(secondItem);
-    }
+
 
 
     // 2. Method for calculating given expression and conversion options
@@ -121,6 +116,14 @@ public class Controller implements Initializable {
                     answerLabel.setText(conversion.InfixToPostfix(exp));
                 } else if (firstItem.equals("Infix") && secondItem.equals("Prefix")) {
                     answerLabel.setText(conversion.InfixToPrefix(exp));
+                } else if (firstItem.equals("Postfix") && secondItem.equals("Infix")) {
+                    answerLabel.setText(conversion.PostfixToInfix(exp));
+                } else if (firstItem.equals("Prefix") && secondItem.equals("Infix")) {
+                    answerLabel.setText(conversion.PrefixToInfix(exp));
+                } else if (firstItem.equals("Postfix") && secondItem.equals("Prefix")) {
+                    answerLabel.setText(conversion.PostfixToPrefix(exp));
+                } else if (firstItem.equals("Prefix") && secondItem.equals("Postfix")) {
+                    answerLabel.setText(conversion.PrefixToPostfix(exp));
                 }
             }
         } catch (Exception e) {
@@ -128,6 +131,21 @@ public class Controller implements Initializable {
         }
     }
 
+    // If "Prefix to Infix", show message that spaces must be
+    // in between operands and operators
+    @FXML
+    protected void Select(MouseEvent event) {
+        firstItem = firstComboBox.getSelectionModel().getSelectedItem();
+        secondItem = secondComboBox.getSelectionModel().getSelectedItem();
+
+        if (firstItem.equals("Prefix") && secondItem.equals("Infix") ||
+                firstItem.equals("Postfix") && secondItem.equals("Infix") ||
+                firstItem.equals("Prefix") && secondItem.equals("Postfix") ||
+                firstItem.equals("Postfix") && secondItem.equals("Prefix")){
+            warningLabel.setText("Please enter expression with a space between operators" +
+                    " and operands.");
+        }
+    }
     @FXML
     protected void hideWarningMessage() {
         warningLabel.setText("");
