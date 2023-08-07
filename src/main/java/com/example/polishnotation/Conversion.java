@@ -150,9 +150,9 @@ public class Conversion {
 
                 // An operator is encountered
                 else {
-                    // Pop off all operators that have EQUAL OR HIGHER PRECEDENCE
+                    // Pop off all operators that have ONLY HIGHER PRECEDENCE
                     // than current operator and append them to result string
-                    while (!myStack.empty() && (Prec(myStack.peek()) >= Prec(ch))) {
+                    while (!myStack.empty() && (Prec(myStack.peek()) > Prec(ch))) {
                         result += myStack.peek();
                         myStack.pop();
                     }
