@@ -53,13 +53,20 @@ public class Conversion {
                 // them to result string until you hit '('. Then,
                 // discard '('.
                 else if (ch == ')') {
-                    while (!myStack.empty() && myStack.peek() != '(') {
-                        result += myStack.peek();
-                        myStack.pop();
+                    // If there is more right parentheses than left parentheses
+                    if (myStack.empty()) {
+                        return "Invalid Expression! (too many right parentheses)";
+                    } else {
+                        while (!myStack.empty() && myStack.peek() != '(') {
+                            result += myStack.peek();
+                            myStack.pop();
+                        }
                     }
 
                     // Discard '(' after while-loop
-                    myStack.pop();
+                    if (myStack.peek() == '('){
+                        myStack.pop();
+                    }
                 }
 
                 // An operator is encountered
@@ -80,7 +87,7 @@ public class Conversion {
             // reach end of input string
             while (!myStack.isEmpty()) {
                 if (myStack.peek() == '(') {
-                   return "Invalid Expression!";
+                   return "Invalid Expression! (too many left parentheses)";
                 }
                 result += myStack.peek();
                 myStack.pop();
@@ -139,13 +146,20 @@ public class Conversion {
                 // them to result string until you hit '('. Then,
                 // discard '('.
                 else if (ch == '(') {
-                    while (!myStack.empty() && myStack.peek() != ')') {
-                        result += myStack.peek();
-                        myStack.pop();
+                    // If there is more left parentheses than right parentheses
+                    if (myStack.empty()) {
+                        return "Invalid Expression! (too many left parentheses)";
+                    } else {
+                        while (!myStack.empty() && myStack.peek() != ')') {
+                            result += myStack.peek();
+                            myStack.pop();
+                        }
                     }
 
                     // Discard ')' after while-loop
-                    myStack.pop();
+                    if (myStack.peek() == ')'){
+                        myStack.pop();
+                    }
                 }
 
                 // An operator is encountered
@@ -165,8 +179,8 @@ public class Conversion {
             // Pop all operators from the stack once you
             // reach end of input string
             while (!myStack.isEmpty()) {
-                if (myStack.peek() == '(') {
-                    return "Invalid Expression!";
+                if (myStack.peek() == ')') {
+                    return "Invalid Expression! (too many right parentheses)";
                 }
                 result += myStack.peek();
                 myStack.pop();
@@ -191,6 +205,11 @@ public class Conversion {
         try {
             // Initializing empty string stack
             Stack<String> strStck = new Stack<>();
+
+            // Display if expression is empty
+            if (postExp.equals("")) {
+                return "Enter non-empty expression.";
+            }
 
             // Traverse through postfix expression
             for (int i = 0; i < postExp.length(); i++) {
@@ -238,6 +257,11 @@ public class Conversion {
         // Initializing empty string stack
         Stack<String> strStack = new Stack<>();
 
+        // Display if expression is empty
+        if (prefixExp.equals("")) {
+            return "Enter non-empty expression.";
+        }
+
         for (int i = prefixExp.length() - 1; i >= 0; i--) {
             // If character is a space, go to next character
             if (prefixExp.charAt(i) == ' ') {
@@ -275,6 +299,11 @@ public class Conversion {
 
     // 6. Postfix to Prefix
     public String PostfixToPrefix(String postExp) {
+        // Display if expression is empty
+        if (postExp.equals("")) {
+            return "Enter non-empty expression.";
+        }
+
         // Postfix -> Infix -> Prefix
         String infixExp = PostfixToInfix(postExp);
         return InfixToPrefix(infixExp);
@@ -283,6 +312,10 @@ public class Conversion {
 
     // 7. Prefix to Postfix
     public String PrefixToPostfix(String prefixExp) {
+        // Display if expression is empty
+        if (prefixExp.equals("")) {
+            return "Enter non-empty expression.";
+        }
         // Prefix -> Infix -> Postfix
         String infixExp = PrefixToInfix(prefixExp);
         return InfixToPostfix(infixExp);

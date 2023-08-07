@@ -43,7 +43,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="answerLabel" layoutX="233.0" layoutY="331.0" prefHeight="31.0" prefWidth="280.0" textFill="RED" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="122.0">
+            <Label fx:id="answerLabel" alignment="TOP_LEFT" layoutX="234.0" layoutY="335.0" prefHeight="50.0" prefWidth="231.0" textFill="RED" wrapText="true" AnchorPane.leftAnchor="234.0" AnchorPane.rightAnchor="170.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -66,9 +66,9 @@
                </font>
             </Label>
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="287.0" layoutY="278.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onConvertButtonClick" text="Convert" />
-            <Label fx:id="warningLabel" alignment="CENTER" layoutX="173.0" layoutY="153.0" prefHeight="59.0" prefWidth="291.0" textFill="#0000ffb8" wrapText="true">
+            <Label fx:id="warningLabel" alignment="CENTER" layoutX="173.0" layoutY="153.0" prefHeight="59.0" prefWidth="340.0" textFill="#0000ffb8" wrapText="true">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font></Label>
          </children>
       </AnchorPane>
