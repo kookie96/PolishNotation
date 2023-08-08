@@ -2,13 +2,10 @@ package com.example.polishnotation;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -16,9 +13,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller2 implements Initializable {
 
     //---------GUI COMPONENTS---------
     @FXML
@@ -78,7 +75,6 @@ public class Controller implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         // Add string array to both combo boxes
         firstComboBox.getItems().addAll(convertOptions);
-        secondComboBox.getItems().addAll(convertOptions);
 
         /* ---Alt. way to add items to combo box
         firstComboBox.setItems(FXCollections.observableArrayList("Infix", "Postfix", "Prefix"));
@@ -90,13 +86,6 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 firstItem = firstComboBox.getSelectionModel().getSelectedItem();
                 answerLabel.setText(firstItem);
-            }
-        });
-        secondComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                secondItem = secondComboBox.getSelectionModel().getSelectedItem();
-                answerLabel.setText(secondItem);
             }
         });
     }
@@ -164,13 +153,13 @@ public class Controller implements Initializable {
 
     // 5. Method to go to evaluation page from menu option
     @FXML
-    protected void goEvaluationPage(ActionEvent event) throws IOException {
+    protected void goConvertPage(ActionEvent event) throws IOException {
         // Call getScene() on any node that isn't null. Any node could be chosen
         // from this controller. Then, typecast window to stage
         Stage stage = (Stage) warningLabel.getScene().getWindow();
 
         // Copy/paste start method in driver and change fxml file
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("sample2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("sample.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 650, 435);
         stage.setTitle("Polish Notation Converter");
         stage.setScene(scene);
