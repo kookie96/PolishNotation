@@ -27,7 +27,7 @@
    <left>
       <AnchorPane prefHeight="392.0" prefWidth="632.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="titleLabel" alignment="CENTER" layoutX="142.0" layoutY="14.0" prefHeight="54.0" prefWidth="316.0" text="Polish Notation Evaluator" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="142.0">
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="145.0" layoutY="14.0" prefHeight="54.0" prefWidth="316.0" text="Polish Notation Evaluator" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="139.0">
                <font>
                   <Font size="24.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="firstComboBox" layoutX="284.0" layoutY="118.0" onMouseClicked="#hideWarningMessage" prefHeight="26.0" prefWidth="125.0" />
+            <ComboBox fx:id="firstComboBox" layoutX="284.0" layoutY="118.0" onAction="#Select" onMouseClicked="#hideWarningMessage" prefHeight="26.0" prefWidth="125.0" />
             <Label fx:id="sentenceLabelTwo" alignment="CENTER" layoutX="409.0" layoutY="118.0" prefHeight="27.0" prefWidth="93.0" text="expression.">
                <font>
                   <Font size="18.0" />

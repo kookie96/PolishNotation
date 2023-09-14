@@ -200,6 +200,7 @@ public class Conversion {
                 (x >= 'A' && x <= 'Z') ||
                 (x >= '0' && x <= '9');
     }
+
     // 4. Postfix to Infix
     public String PostfixToInfix(String postExp) {
         try {
@@ -267,6 +268,7 @@ public class Conversion {
             if (prefixExp.charAt(i) == ' ') {
                 // do nothing and go to next iteration
             }
+
             // Push operands onto the stack
             else if (isOperand(prefixExp.charAt(i))) {
                 String str = String.valueOf(prefixExp.charAt(i));

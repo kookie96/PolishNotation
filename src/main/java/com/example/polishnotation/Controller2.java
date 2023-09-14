@@ -63,18 +63,16 @@ public class Controller2 implements Initializable {
     @FXML
     private MenuItem evaluateOption;
 
-    String[] convertOptions = {"Infix", "Postfix", "Prefix"};
+    String[] evaluateOptions = {"Infix", "Postfix", "Prefix"};
     String firstItem = "";
-    String secondItem = "";
-
 
     //---------METHODS---------
-    // 1. Initialize combo boxes for user to choose what to convert from
-    // and what to convert to
+    // 1. Initialize combo box for user to choose what type of expression
+    // to evaluate
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // Add string array to both combo boxes
-        firstComboBox.getItems().addAll(convertOptions);
+        firstComboBox.getItems().addAll(evaluateOptions);
 
         /* ---Alt. way to add items to combo box
         firstComboBox.setItems(FXCollections.observableArrayList("Infix", "Postfix", "Prefix"));
@@ -88,63 +86,34 @@ public class Controller2 implements Initializable {
                 answerLabel.setText(firstItem);
             }
         });
+
+        warningLabel.setText("Please enter expression with a space between operators" +
+                " and operands.");
     }
-
-
-
 
     // 2. Method for calculating given expression and conversion options
     @FXML
     protected void onConvertButtonClick() {
-        // Create conversion object to call appropriate conversion methods
-        Conversion conversion = new Conversion();
+        // Create evaluation object to call appropriate evaluation methods
+        Evaluation evaluation = new Evaluation();
 
         try {
             // Store expression inputted by the user in a string
             String exp = userExpression.getText();
 
-            // Display warning if same options are picked; ex. "Infix to Infix"
-            if (firstItem.equals(secondItem)) {
-                warningLabel.setText("WARNING! Pick two different options above.");
-            }
-
-            // Otherwise, call appropriate method for conversion
-            else {
-                // Call Infix to Postfix method
-                if (firstItem.equals("Infix") && secondItem.equals("Postfix")) {
-                    answerLabel.setText(conversion.InfixToPostfix(exp));
-                } else if (firstItem.equals("Infix") && secondItem.equals("Prefix")) {
-                    answerLabel.setText(conversion.InfixToPrefix(exp));
-                } else if (firstItem.equals("Postfix") && secondItem.equals("Infix")) {
-                    answerLabel.setText(conversion.PostfixToInfix(exp));
-                } else if (firstItem.equals("Prefix") && secondItem.equals("Infix")) {
-                    answerLabel.setText(conversion.PrefixToInfix(exp));
-                } else if (firstItem.equals("Postfix") && secondItem.equals("Prefix")) {
-                    answerLabel.setText(conversion.PostfixToPrefix(exp));
-                } else if (firstItem.equals("Prefix") && secondItem.equals("Postfix")) {
-                    answerLabel.setText(conversion.PrefixToPostfix(exp));
-                }
+            // Call appropriate method for evaluation
+            if (firstItem.equals("Infix")) {
+                answerLabel.setText(evaluation.evaluateArithmetic(exp));
+            } else if (firstItem.equals("Postfix")) {
+                answerLabel.setText(evaluation.evaluatePostfix());
+            } else if (firstItem.equals("Prefix")) {
+                answerLabel.setText(evaluation.evaluatePrefix());
             }
         } catch (Exception e) {
             warningLabel.setText(e.getMessage());
         }
     }
 
-    // 3. If certain methods need spaces, show message that spaces must be
-    // in between operands and operators
-    @FXML
-    protected void Select(MouseEvent event) {
-        firstItem = firstComboBox.getSelectionModel().getSelectedItem();
-        secondItem = secondComboBox.getSelectionModel().getSelectedItem();
-
-        if (firstItem.equals("Prefix") && secondItem.equals("Infix") ||
-                firstItem.equals("Postfix") && secondItem.equals("Infix") ||
-                firstItem.equals("Prefix") && secondItem.equals("Postfix") ||
-                firstItem.equals("Postfix") && secondItem.equals("Prefix")){
-            warningLabel.setText("Please enter expression with a space between operators" +
-                    " and operands.");
-        }
-    }
     //4. Hide error message on certain mouse clicks
     @FXML
     protected void hideWarningMessage() {

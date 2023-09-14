@@ -101,9 +101,6 @@ public class Controller implements Initializable {
         });
     }
 
-
-
-
     // 2. Method for calculating given expression and conversion options
     @FXML
     protected void onConvertButtonClick() {
@@ -124,15 +121,30 @@ public class Controller implements Initializable {
                 // Call Infix to Postfix method
                 if (firstItem.equals("Infix") && secondItem.equals("Postfix")) {
                     answerLabel.setText(conversion.InfixToPostfix(exp));
-                } else if (firstItem.equals("Infix") && secondItem.equals("Prefix")) {
+                }
+
+                // Call Infix to Prefix method
+                else if (firstItem.equals("Infix") && secondItem.equals("Prefix")) {
                     answerLabel.setText(conversion.InfixToPrefix(exp));
-                } else if (firstItem.equals("Postfix") && secondItem.equals("Infix")) {
+                }
+
+                // Call Postfix to Infix
+                else if (firstItem.equals("Postfix") && secondItem.equals("Infix")) {
                     answerLabel.setText(conversion.PostfixToInfix(exp));
-                } else if (firstItem.equals("Prefix") && secondItem.equals("Infix")) {
+                }
+
+                // Call Prefix to Infix
+                else if (firstItem.equals("Prefix") && secondItem.equals("Infix")) {
                     answerLabel.setText(conversion.PrefixToInfix(exp));
-                } else if (firstItem.equals("Postfix") && secondItem.equals("Prefix")) {
+                }
+
+                // Call Postfix to Prefix
+                else if (firstItem.equals("Postfix") && secondItem.equals("Prefix")) {
                     answerLabel.setText(conversion.PostfixToPrefix(exp));
-                } else if (firstItem.equals("Prefix") && secondItem.equals("Postfix")) {
+                }
+
+                // Call Prefix to Postfix
+                else if (firstItem.equals("Prefix") && secondItem.equals("Postfix")) {
                     answerLabel.setText(conversion.PrefixToPostfix(exp));
                 }
             }
@@ -172,7 +184,7 @@ public class Controller implements Initializable {
         // Copy/paste start method in driver and change fxml file
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("sample2.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 650, 435);
-        stage.setTitle("Polish Notation Converter");
+        stage.setTitle("Polish Notation Evaluator");
         stage.setScene(scene);
         stage.show();
     }
